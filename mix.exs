@@ -1,4 +1,4 @@
-defmodule Ddwrt.Mixfile do
+defmodule DDWRT.Mixfile do
   use Mix.Project
 
   def project do

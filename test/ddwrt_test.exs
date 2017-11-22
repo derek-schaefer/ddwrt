@@ -1,8 +1,8 @@
-defmodule DdwrtTest do
+defmodule DDWRTTest do
   use ExUnit.Case
-  doctest Ddwrt
+  doctest DDWRT
 
   test "greets the world" do
-    assert Ddwrt.hello() == :world
+    assert DDWRT.hello() == :world
   end
 end

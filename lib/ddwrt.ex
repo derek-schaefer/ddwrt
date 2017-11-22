@@ -1,6 +1,6 @@
-defmodule Ddwrt do
+defmodule DDWRT do
   @moduledoc """
-  Documentation for Ddwrt.
+  Documentation for DDWRT.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Ddwrt do
 
   ## Examples
 
-      iex> Ddwrt.hello
+      iex> DDWRT.hello
       :world
 
   """
