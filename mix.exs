@@ -23,7 +23,8 @@ defmodule DDWRT.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:httpoison, "~> 0.13"}
+      {:httpoison, "~> 0.13"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 
