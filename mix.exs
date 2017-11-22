@@ -7,6 +7,8 @@ defmodule DDWRT.Mixfile do
       version: "0.0.1",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
+      description: description(),
+      package: package(),
       deps: deps()
     ]
   end
@@ -22,6 +24,18 @@ defmodule DDWRT.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.13"}
+    ]
+  end
+
+  defp description do
+    "A library for interacting with routes running DD-WRT"
+  end
+
+  defp package do
+    [
+      maintainers: ["Derek Schaefer"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => "https://github.com/derek-schaefer/ddwrt"}
     ]
   end
 end
