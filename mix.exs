@@ -29,7 +29,7 @@ defmodule DDWRT.Mixfile do
   end
 
   defp description do
-    "A library for interacting with routes running DD-WRT"
+    "A library for interacting with routers running DD-WRT"
   end
 
   defp package do
