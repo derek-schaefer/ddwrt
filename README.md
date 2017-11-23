@@ -1,4 +1,4 @@
-# DDWRT
+# DD-WRT Elixir Library
 
 **TODO: Add description**
 
