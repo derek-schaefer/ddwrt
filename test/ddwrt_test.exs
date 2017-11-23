@@ -83,7 +83,7 @@ defmodule DDWRTTest do
 
   describe "#headers" do
     test "builds a header keyword list with an authorization value" do
-      assert %DDWRT{username: "test", password: "test"} |> DDWRT.headers == [authorization: "Basic " <> Base.encode64("test:test")]
+      assert %DDWRT{username: "test", password: "test"} |> DDWRT.headers == [{"Authorization", "Basic " <> Base.encode64("test:test")}]
     end
   end
 

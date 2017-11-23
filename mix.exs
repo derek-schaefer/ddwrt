@@ -24,7 +24,8 @@ defmodule DDWRT.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.13"},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:dialyxir, "~> 0.5", only: :dev, runtime: false}
     ]
   end
 
