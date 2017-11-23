@@ -11,7 +11,7 @@ defmodule DDWRT do
   @doc """
   Retrieves the wireless status and extracts the results as a `DDWRT.Wireless` record.
   """
-  @spec status_wireless(__MODULE__.t) :: {:ok, Wireless.t} | {:error, HTTPoison.Error.t}
+  @spec status_wireless(t) :: {:ok, Wireless.t} | {:error, HTTPoison.Error.t}
   def status_wireless(%__MODULE__{} = settings) do
     with {:ok, results} <- get_results(settings, "/Status_Wireless.live.asp") do
       results |> Wireless.new |> success
@@ -21,7 +21,7 @@ defmodule DDWRT do
   @doc """
   Retrieves the LAN status and extracts the results as a `DDWRT.DHCP` record.
   """
-  @spec status_lan(__MODULE__.t) :: {:ok, DHCP.t} | {:error, HTTPoison.Error.t}
+  @spec status_lan(t) :: {:ok, DHCP.t} | {:error, HTTPoison.Error.t}
   def status_lan(%__MODULE__{} = settings) do
     with {:ok, results} <- get_results(settings, "/Status_Lan.live.asp") do
       results |> DHCP.new |> success
@@ -31,7 +31,7 @@ defmodule DDWRT do
   @doc """
   Issues a GET request and extracts the results as a map if successful.
   """
-  @spec get_results(__MODULE__.t, String.t) :: {:ok, %{String.t => String.t}} | {:error, HTTPoison.Error.t}
+  @spec get_results(t, String.t) :: {:ok, %{String.t => String.t}} | {:error, HTTPoison.Error.t}
   def get_results(%__MODULE__{} = settings, path) do
     with {:ok, response} <- get(settings, path) do
       response.body |> extract_results |> success
@@ -41,7 +41,7 @@ defmodule DDWRT do
   @doc """
   Issues an authenticated GET request to the given path relative to the configured address.
   """
-  @spec get(__MODULE__.t, String.t) :: {:ok, HTTPoison.Response.t} | {:error, HTTPoison.Error.t}
+  @spec get(t, String.t) :: {:ok, HTTPoison.Response.t} | {:error, HTTPoison.Error.t}
   def get(%__MODULE__{} = settings, path) do
     HTTPoison.get(settings.address <> path, headers(settings))
   end
@@ -49,7 +49,7 @@ defmodule DDWRT do
   @doc """
   Constructs a list of tuples to be used as HTTP request headers.
   """
-  @spec headers(__MODULE__.t) :: [{String.t, String.t}]
+  @spec headers(t) :: [{String.t, String.t}]
   def headers(%__MODULE__{} = settings) do
     [{"Authorization", "Basic " <> authorization(settings)}]
   end
@@ -57,7 +57,7 @@ defmodule DDWRT do
   @doc """
   Encodes the username and password to be used for HTTP basic authentication.
   """
-  @spec authorization(__MODULE__.t) :: String.t
+  @spec authorization(t) :: String.t
   def authorization(%__MODULE__{} = settings) do
     Base.encode64(settings.username <> ":" <> settings.password)
   end

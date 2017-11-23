@@ -13,7 +13,7 @@ defmodule DDWRT.DHCP do
   @doc """
   new
   """
-  @spec new(%{String.t => String.t}) :: __MODULE__.t
+  @spec new(%{String.t => String.t}) :: t
   def new(results) when is_map(results) do
     %__MODULE__{
       leases: leases(results)
